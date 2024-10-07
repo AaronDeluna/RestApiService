@@ -2,6 +2,7 @@ package com.example.start_upp_rest_api.service;
 
 import com.example.start_upp_rest_api.exception.InvalidClientDataException;
 import com.example.start_upp_rest_api.models.Client;
+import com.example.start_upp_rest_api.util.FileWriterUtil;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -9,18 +10,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class FileService {
-    private static final String FILE_NAME = "clients.txt";
+public class ClientService {
+    private static final String CLIENT_FILE_NAME = "clients.txt";
 
     public void addClient(Client client) throws InvalidClientDataException {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
-            writer.write(validClientData(client).toString());
-            writer.newLine();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        FileWriterUtil.writeToFile(CLIENT_FILE_NAME, validClientData(client));
     }
 
+    /**
+     * Проверка клиента который добавляется через форму
+     * @param client
+     * @return
+     * @throws InvalidClientDataException
+     */
     private Client validClientData(Client client) throws InvalidClientDataException {
         if (client.getName().isEmpty() || client.getName() == null){
             throw new InvalidClientDataException("Ошибка: имя клинета не может быть пустым");
@@ -33,7 +35,7 @@ public class FileService {
 
     public List<Client> getAllClients() {
         List<Client> clientList = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(CLIENT_FILE_NAME))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 clientList.add(Client.fromString(line));
