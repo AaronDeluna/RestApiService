@@ -4,9 +4,6 @@ import com.example.start_upp_rest_api.exception.InvalidReviewDataException;
 import com.example.start_upp_rest_api.models.Review;
 import com.example.start_upp_rest_api.util.FileWriterUtil;
 import org.springframework.stereotype.Service;
-
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 
 @Service

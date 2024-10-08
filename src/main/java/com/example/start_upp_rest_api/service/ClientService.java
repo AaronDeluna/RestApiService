@@ -24,25 +24,12 @@ public class ClientService {
      * @throws InvalidClientDataException
      */
     private Client validClientData(Client client) throws InvalidClientDataException {
-        if (client.getName().isEmpty() || client.getName() == null){
+        if (client.getName() == null || client.getName().isEmpty()){
             throw new InvalidClientDataException("Ошибка: имя клинета не может быть пустым");
         }
-        if (client.getPhoneNumber().isEmpty() || client.getPhoneNumber() == null) {
+        if (client.getPhoneNumber() == null || client.getPhoneNumber().isEmpty()) {
             throw new InvalidClientDataException("Ошибка: не корректный ввод номера телефона");
         }
         return client;
-    }
-
-    public List<Client> getAllClients() {
-        List<Client> clientList = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(CLIENT_FILE_NAME))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                clientList.add(Client.fromString(line));
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return clientList;
     }
 }

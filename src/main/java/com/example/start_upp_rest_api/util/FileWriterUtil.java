@@ -8,6 +8,7 @@ public class FileWriterUtil {
     public static void writeToFile(String fileName, Object item) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))) {
             writer.write(item.toString());
+            writer.newLine();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
