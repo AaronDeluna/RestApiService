@@ -1,6 +1,9 @@
 package com.example.start_upp_rest_api.models;
 
 public class User {
+    private static final String SEPARATION_SIGN = ",";
+    private static final int LOGIN_INDEX = 0;
+    private static final int PASSWORD_INDEX = 1;
     private String login;
     private String password;
     private UserType userType = UserType.USER;
@@ -39,11 +42,17 @@ public class User {
 
     @Override
     public String toString() {
-        return login + "," + password;
+        return login + SEPARATION_SIGN + password;
     }
 
+    /**
+     * Парсит строку для создания объекта пользователя.
+     *
+     * @param line строка, содержащая данные пользователя
+     * @return объект User, созданный из данных в строке
+     */
     public static User parseUser(String line) {
-        String[] items = line.split(",");
-        return new User(items[0], items[1]);
+        String[] items = line.split(SEPARATION_SIGN);
+        return new User(items[LOGIN_INDEX], items[PASSWORD_INDEX]);
     }
 }
