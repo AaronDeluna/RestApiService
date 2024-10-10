@@ -2,7 +2,7 @@ package com.example.start_upp_rest_api.service;
 
 import com.example.start_upp_rest_api.exception.InvalidReviewDataException;
 import com.example.start_upp_rest_api.models.Review;
-import com.example.start_upp_rest_api.util.FileWriterUtil;
+import com.example.start_upp_rest_api.util.FileWriterUtils;
 import org.springframework.stereotype.Service;
 import java.io.IOException;
 
@@ -20,7 +20,7 @@ public class ReviewService {
      * @throws IOException при ошибке записи в файл.
      */
     public void addReview(Review review) throws InvalidReviewDataException {
-        FileWriterUtil.writeToFile(REVIEW_FILE_NAME, validDataReview(review));
+        FileWriterUtils.writeToFile(REVIEW_FILE_NAME, validDataReview(review));
     }
 
     /**
