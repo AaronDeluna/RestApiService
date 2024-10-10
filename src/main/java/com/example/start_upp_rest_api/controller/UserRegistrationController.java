@@ -21,7 +21,7 @@ public class UserRegistrationController {
     @PostMapping
     public ResponseEntity<String> registrationUser(@RequestBody User user) {
         try {
-            userRegistrationService.register(user);
+            userRegistrationService.registration(user);
             return new ResponseEntity<>("Пользователь успешно зарегестрирован", HttpStatus.CREATED);
         } catch (UserRegistrationException e) {
             return new ResponseEntity<>("Ошибка: " + e.getMessage(),HttpStatus.BAD_REQUEST);

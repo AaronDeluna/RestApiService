@@ -3,6 +3,7 @@ package com.example.start_upp_rest_api.models;
 public class User {
     private String login;
     private String password;
+    private UserType userType = UserType.USER;
 
     public User() {
     }
@@ -26,6 +27,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public UserType getUserType() {
+        return userType;
+    }
+
+    public void setUserType(UserType userType) {
+        this.userType = userType;
     }
 
     @Override
