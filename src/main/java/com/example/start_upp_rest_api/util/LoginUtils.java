@@ -15,7 +15,7 @@ public class LoginUtils {
      * @return true, если логин корректен (не пустой и не существует в файле), иначе false
      */
     public static boolean isCorrectLoginInput(String fileName, String login) {
-        return !login.trim().isEmpty() || isLoginExists(fileName, login);
+        return !(login.isEmpty() || isLoginExists(fileName, login));
     }
 
     /**

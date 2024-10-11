@@ -1,6 +1,7 @@
 package com.example.start_upp_rest_api.validation.authentication;
 
 import com.example.start_upp_rest_api.models.User;
+import com.example.start_upp_rest_api.validation.client.NameValidation;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,6 +9,14 @@ import java.io.FileReader;
 public class UserAuthValidation {
     private static final int LOGIN_INDEX = 0;
     private static final int PASSWORD_INDEX = 1;
+
+    /**
+     * Проверяет, существует ли пользователь с таким логином или паролем в файле.
+     *
+     * @param fileName имя файла с данными пользователей
+     * @param user объект пользователя для проверки
+     * @return true, если логин или пароль уже существуют в файле, иначе false
+     */
     public static boolean validation(String fileName, User user) {
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;

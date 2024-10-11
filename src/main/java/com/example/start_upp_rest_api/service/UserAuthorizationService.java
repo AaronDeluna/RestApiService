@@ -10,10 +10,15 @@ public class UserAuthorizationService {
 
     private static final String FILE_NAME = "user.txt";
 
-    public boolean authorization(User user) throws UserNotFoundException {
+    /**
+     * Выполняет авторизацию пользователя.
+     *
+     * @param user объект пользователя, который пытается авторизоваться
+     * @throws UserNotFoundException если пользователь не найден
+     */
+    public void authorization(User user) throws UserNotFoundException {
         if (!UserAuthValidation.validation(FILE_NAME, user)) {
             throw new UserNotFoundException("Пользователь не найден");
         }
-        return true;
     }
 }

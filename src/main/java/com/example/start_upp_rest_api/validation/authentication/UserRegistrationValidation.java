@@ -16,10 +16,10 @@ public class UserRegistrationValidation {
      * @throws UserRegistrationException если логин пуст, null, уже существует, или если пароль пуст или null
      */
     public static User validation(String fileName, User user) throws UserRegistrationException {
-        if (LoginUtils.isCorrectLoginInput(fileName, user.getLogin())) {
+        if (!LoginUtils.isCorrectLoginInput(fileName, user.getLogin())) {
             throw new UserRegistrationException("Произошла ошибка при вводе логина!");
         }
-        if (PasswordUtils.isCorrectPasswordInput(user.getPassword())) {
+        if (!PasswordUtils.isCorrectPasswordInput(user.getPassword())) {
             throw new UserRegistrationException("Призошла ошибка при вводе пароля!");
         }
         return user;

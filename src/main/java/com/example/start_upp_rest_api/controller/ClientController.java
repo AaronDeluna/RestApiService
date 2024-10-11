@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 @RequestMapping("/api/clients")
 public class ClientController {
-    private ClientService clientService;
+    private final ClientService clientService;
 
     public ClientController(ClientService clientService) {
         this.clientService = clientService;
@@ -25,12 +25,12 @@ public class ClientController {
      * @return {@link ResponseEntity} с сообщением и статусом 201 (CREATED) или 400 (BAD_REQUEST) при ошибке.
      */
     @PostMapping
-    public ResponseEntity<HttpStatus> addClient(@RequestBody Client client) {
+    public ResponseEntity<String> addClient(@RequestBody Client client) {
         try {
             clientService.addClient(client);
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (InvalidClientDataException e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 }
