@@ -3,6 +3,7 @@ package com.example.start_upp_rest_api.controller;
 import com.example.start_upp_rest_api.exception.UserRegistrationException;
 import com.example.start_upp_rest_api.models.User;
 import com.example.start_upp_rest_api.service.UserRegistrationService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,13 +11,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin
 @RequestMapping("/api/user/registration")
+@AllArgsConstructor
 public class UserRegistrationController {
 
     private final UserRegistrationService userRegistrationService;
-
-    public UserRegistrationController(UserRegistrationService userRegistrationService) {
-        this.userRegistrationService = userRegistrationService;
-    }
 
     @PostMapping
     public ResponseEntity<String> registrationUser(@RequestBody User user) {

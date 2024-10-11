@@ -3,6 +3,7 @@ package com.example.start_upp_rest_api.controller;
 import com.example.start_upp_rest_api.exception.InvalidClientDataException;
 import com.example.start_upp_rest_api.models.Client;
 import com.example.start_upp_rest_api.service.ClientService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -11,12 +12,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin
 @RequestMapping("/api/clients")
+@AllArgsConstructor
 public class ClientController {
-    private final ClientService clientService;
 
-    public ClientController(ClientService clientService) {
-        this.clientService = clientService;
-    }
+    private final ClientService clientService;
 
     /**
      * Добавляет нового клиента.

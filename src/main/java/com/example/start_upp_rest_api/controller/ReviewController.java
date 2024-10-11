@@ -3,6 +3,7 @@ package com.example.start_upp_rest_api.controller;
 import com.example.start_upp_rest_api.exception.InvalidReviewDataException;
 import com.example.start_upp_rest_api.models.Review;
 import com.example.start_upp_rest_api.service.ReviewService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,12 +11,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin
 @RequestMapping("/api/review")
+@AllArgsConstructor
 public class ReviewController {
-    private final ReviewService reviewService;
 
-    public ReviewController(ReviewService reviewService) {
-        this.reviewService = reviewService;
-    }
+    private final ReviewService reviewService;
 
     /**
      * Добавляет новый отзыв.

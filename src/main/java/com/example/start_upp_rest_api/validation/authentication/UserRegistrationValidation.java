@@ -2,8 +2,8 @@ package com.example.start_upp_rest_api.validation.authentication;
 
 import com.example.start_upp_rest_api.exception.UserRegistrationException;
 import com.example.start_upp_rest_api.models.User;
-import com.example.start_upp_rest_api.util.LoginUtils;
-import com.example.start_upp_rest_api.util.PasswordUtils;
+import com.example.start_upp_rest_api.validation.data.LoginUtils;
+import com.example.start_upp_rest_api.validation.data.PasswordUtils;
 
 public class UserRegistrationValidation {
 

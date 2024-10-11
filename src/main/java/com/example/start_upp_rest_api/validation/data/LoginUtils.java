@@ -1,4 +1,4 @@
-package com.example.start_upp_rest_api.util;
+package com.example.start_upp_rest_api.validation.data;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

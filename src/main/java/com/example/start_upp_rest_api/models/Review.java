@@ -11,12 +11,13 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Review {
 
+    private static final String SEPARATION_SIGN = ",";
     private int rating;
     private String phoneNumber;
     private String message;
 
     @Override
     public String toString() {
-        return rating + "," + phoneNumber + "," + message;
+        return rating + SEPARATION_SIGN + phoneNumber + SEPARATION_SIGN + message;
     }
 }

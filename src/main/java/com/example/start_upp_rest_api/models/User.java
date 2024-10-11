@@ -15,5 +15,4 @@ public class User {
     public String toString() {
         return login + SEPARATION_SIGN + password;
     }
-
 }
