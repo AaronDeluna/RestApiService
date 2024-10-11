@@ -1,4 +1,4 @@
-package com.example.start_upp_rest_api.controller.auth;
+package com.example.start_upp_rest_api.api.auth;
 
 import com.example.start_upp_rest_api.exception.UserNotFoundException;
 import com.example.start_upp_rest_api.exception.UserRegistrationException;

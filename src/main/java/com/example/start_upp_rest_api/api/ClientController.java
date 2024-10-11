@@ -1,4 +1,4 @@
-package com.example.start_upp_rest_api.controller;
+package com.example.start_upp_rest_api.api;
 
 import com.example.start_upp_rest_api.exception.InvalidClientDataException;
 import com.example.start_upp_rest_api.models.Client;
@@ -6,7 +6,6 @@ import com.example.start_upp_rest_api.service.ClientService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

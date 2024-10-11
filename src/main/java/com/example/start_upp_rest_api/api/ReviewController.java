@@ -1,4 +1,4 @@
-package com.example.start_upp_rest_api.controller;
+package com.example.start_upp_rest_api.api;
 
 import com.example.start_upp_rest_api.exception.InvalidReviewDataException;
 import com.example.start_upp_rest_api.models.Review;
