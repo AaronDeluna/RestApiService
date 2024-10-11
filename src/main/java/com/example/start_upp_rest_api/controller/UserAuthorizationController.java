@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/authorization")
 public class UserAuthorizationController {
 
-    private UserAuthorizationService userAuthorizationService;
+    private final UserAuthorizationService userAuthorizationService;
 
     public UserAuthorizationController(UserAuthorizationService userAuthorizationService) {
         this.userAuthorizationService = userAuthorizationService;

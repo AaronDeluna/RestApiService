@@ -11,6 +11,12 @@ public class UserRegistrationService {
 
     private static final String FILE_NAME = "user.txt";
 
+    /**
+     * Регистрирует пользователя, записывая его данные в файл после прохождения валидации.
+     *
+     * @param user объект пользователя для регистрации
+     * @throws UserRegistrationException если данные пользователя не прошли валидацию
+     */
     public void registration(User user) throws UserRegistrationException {
         FileWriterUtils.writeToFile(FILE_NAME, UserRegistrationValidation.validation(FILE_NAME, user).toString());
     }

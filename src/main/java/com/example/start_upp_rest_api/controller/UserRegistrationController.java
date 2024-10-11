@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/user/registration")
 public class UserRegistrationController {
 
-    private UserRegistrationService userRegistrationService;
+    private final UserRegistrationService userRegistrationService;
 
     public UserRegistrationController(UserRegistrationService userRegistrationService) {
         this.userRegistrationService = userRegistrationService;
